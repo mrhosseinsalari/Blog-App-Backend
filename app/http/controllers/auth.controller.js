@@ -91,10 +91,13 @@ class UserAuthController extends Controller {
     if (!updateResult.modifiedCount === 0)
       throw createError.BadRequest("اطلاعات ویرایش نشد");
 
+    const updatedUser = await UserModel.findById(userId);
+
     return res.status(HttpStatus.OK).json({
       statusCode: HttpStatus.OK,
       data: {
         message: "اطلاعات با موفقیت آپدیت شد",
+        user: updatedUser,
       },
     });
   }
@@ -112,10 +115,14 @@ class UserAuthController extends Controller {
     );
     if (!updateResult.modifiedCount === 0)
       throw createError.BadRequest("عکس پروفایل آپلود نشد");
+
+    const updatedUser = await UserModel.findById(userId);
+
     return res.status(HttpStatus.OK).json({
       statusCode: HttpStatus.OK,
       data: {
         message: "عکس پروفایل با موفقیت آپلود شد",
+        user: updatedUser,
       },
     });
   }
