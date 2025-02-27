@@ -1,6 +1,6 @@
 {
   "platform": "node",
-  "app": "api-blog-app",
+  "app": "next-blog-app-api",
   "port": 3000,
   "disks": [
     {
